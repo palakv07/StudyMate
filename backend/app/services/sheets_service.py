@@ -72,15 +72,22 @@ class SheetsService:
     def _ensure_client(self) -> gspread.Client:
         if self._client:
             return self._client
+        creds_json = env("GOOGLE_CREDENTIALS_JSON")
+        if creds_json:
+           import json
+
+           creds_dict = json.loads(creds_json)
+
+           creds = ServiceAccountCredentials.from_json_keyfile_dict(creds_dict,SCOPE,)
+           self._client = gspread.authorize(creds)
+           return self._client
         if not self.creds_file.exists():
             raise FileNotFoundError(
-                f"Google credentials not found at {self.creds_file}. "
-                "Place your service account credentials.json in the backend folder. "
-                "See README.md for setup steps."
+                f"Google credentials not found at {self.creds_file}"
             )
         creds = ServiceAccountCredentials.from_json_keyfile_name(
-            str(self.creds_file), SCOPE
-        )
+        str(self.creds_file),
+        SCOPE,)
         self._client = gspread.authorize(creds)
         return self._client
 
