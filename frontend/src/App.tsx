@@ -37,7 +37,7 @@ export default function App() {
       setBackendUp(healthy);
       if (!healthy) {
         setLoadError(
-          "Backend is not running. Double-click start_project.bat (or backend\\start_backend.bat), wait for 'Uvicorn running on http://127.0.0.1:8000', then click Refresh."
+          "Unable to connect to the backend service. Please wait a few seconds and refresh the page."
         );
         return;
       }
@@ -68,7 +68,7 @@ export default function App() {
       setLoadError(
         e instanceof Error
           ? e.message
-          : "Could not reach backend. Run start_project.bat and check backend/.env"
+          : "Could not reach backend.check backend/.env"
       );
     } finally {
       setLoading(false);
@@ -108,8 +108,8 @@ export default function App() {
             <p className="mt-1">{loadError}</p>
             <p className="mt-2 text-xs text-amber-400/80">
               Test in browser:{" "}
-              <a className="underline" href="http://127.0.0.1:8000/health">
-                http://127.0.0.1:8000/health
+              <a className="underline" href="https://studymate-c8y7.onrender.com/health">
+                https://studymate-c8y7.onrender.com/health
               </a>{" "}
               should show {`{"status":"ok"}`}
             </p>

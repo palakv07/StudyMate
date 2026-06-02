@@ -202,7 +202,7 @@ mystudymate/
 ├── backend/          # FastAPI backend, services, Coral files
 ├── frontend/         # React + Vite frontend
 ├── scripts/          # setup and helper scripts
-├── start_project.bat # project bootstrapper
+├──  # project bootstrapper
 └── README.md   # this documentation
 ```
 

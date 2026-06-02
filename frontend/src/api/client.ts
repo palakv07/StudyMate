@@ -15,7 +15,7 @@ async function apiFetch(path: string, init?: RequestInit) {
     return res;
   } catch {
     throw new Error(
-      `Cannot reach backend at ${BASE}. Start it: run start_project.bat or open backend/start_backend.bat`
+      `Cannot reach backend at ${BASE}. Start it: open backend/start_backend.bat`
     );
   }
 }
