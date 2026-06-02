@@ -1,0 +1,48 @@
+z# Environment and secrets
+backend/.env
+backend/credentials.json
+backend/google_oauth_client.json
+backend/.calendar_token.json
+backend/calendar_token.json
+backend/.calendar_pkce.json
+frontend/.env
+
+# Python
+backend/venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+backend/data/
+*.sqlite3
+*.db
+
+# Node
+frontend/node_modules/
+frontend/dist/
+frontend/.env
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+package-lock.json
+pnpm-lock.yaml
+yarn.lock
+
+# IDE/editor
+.vscode/
+.idea/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Coral
+backend/coral/coral.exe
+backend/coral/*.zip
+backend/coral/sources/sheets.patched.yaml
+backend/coral/data/leetcode_progress.csv
+
+# OS
+.DS_Store
+Thumbs.db

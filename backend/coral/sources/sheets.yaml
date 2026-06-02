@@ -1,0 +1,30 @@
+# Custom Coral file source — mirrors Google Sheet as sheets.leetcode_progress
+# CSV is refreshed by the backend after each solve (see app/services/coral_sync.py)
+name: sheets
+version: 0.1.0
+dsl_version: 3
+backend: file
+test_queries:
+  - SELECT problem, topic, status FROM sheets.leetcode_progress LIMIT 5
+tables:
+  - name: leetcode_progress
+    description: LeetCode progress exported from Google Sheets
+    format: csv
+    source:
+      location: file:///CORAL_DATA_DIR/
+      glob: "leetcode_progress.csv"
+    columns:
+      - name: problem
+        type: Utf8
+      - name: topic
+        type: Utf8
+      - name: difficulty
+        type: Utf8
+      - name: status
+        type: Utf8
+      - name: time_taken
+        type: Float64
+      - name: weakness_score
+        type: Float64
+      - name: date_solved
+        type: Utf8
