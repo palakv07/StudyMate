@@ -3,7 +3,9 @@
  * Set VITE_API_URL in frontend/.env.development (default: direct backend URL).
  */
 
-const BASE = "http://127.0.0.1:8000";
+const BASE =
+  import.meta.env.VITE_API_URL ||
+  "http://127.0.0.1:8000";
 
 
 async function apiFetch(path: string, init?: RequestInit) {
